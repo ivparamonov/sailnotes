@@ -105,7 +105,6 @@ Page {
                             } else {
                                 notificationManager.removeNotification(id);
                             }
-                            evernoteSynchronizer.startSynchronization();
                             listView.model.updateModel();
                         });
                     }
@@ -121,7 +120,6 @@ Page {
                         audioRecorder.removeAudioFile(audioFilePath);
                         databaseManager.deleteNoteById(id);
                         notificationManager.removeNotification(id);
-                        evernoteSynchronizer.startSynchronization();
                         listView.model.updateModel();
                     }
                 }
@@ -130,7 +128,6 @@ Page {
         Component.onCompleted: {
             noteListModel.setNotesTag(tag);
             noteListModel.updateModel();
-            evernoteSynchronizer.startSynchronization();
         }
     }
     onStatusChanged: {

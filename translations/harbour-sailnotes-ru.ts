@@ -142,29 +142,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
-        <source>Login via Evernote</source>
-        <translation>Войти с помощью Evernote</translation>
-    </message>
-    <message>
-        <source>Synchronize data</source>
-        <translation>Синхронизировать данные</translation>
-    </message>
-    <message>
-        <source>Synchronization is runned</source>
-        <translation>Синхронизация запущена</translation>
-    </message>
-    <message>
-        <source>Logout from Evernote</source>
-        <translation>Выйти из Evernote</translation>
-    </message>
-</context>
-<context>
     <name>TagsPage</name>
     <message>
         <source>Tags</source>

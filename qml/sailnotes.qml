@@ -6,7 +6,6 @@ import harbour.sailnotes.settings 1.0
 import harbour.sailnotes.noteListModel 1.0
 import harbour.sailnotes.databaseManager 1.0
 import harbour.sailnotes.notificationManager 1.0
-import harbour.sailnotes.evernoteSynchronizer 1.0
 
 import harbour.sailnotes 1.0
 import "pages"
@@ -24,14 +23,6 @@ ApplicationWindow
     NoteListModel { id: noteListModel }
     DatabaseManager { id: databaseManager }
     NotificationManager { id: notificationManager }
-    EvernoteSynchronizer {
-        id: evernoteSynchronizer
-        noteListModel: noteListModel
-        databaseManager: databaseManager
-        notificationManager: notificationManager
-        settings: settings
-        fileHelper: fileHelper
-    }
     AudioRecorder { id: audioRecorder }
 
     ConfigurationValue {
@@ -45,7 +36,6 @@ ApplicationWindow
         dialog.accepted.connect(function() {
             var noteId = databaseManager.createNote(dialog.localNote);
             noteListModel.updateModel();
-            evernoteSynchronizer.startSynchronization();
             if (dialog.localNote.reminderTimestamp > 0) {
                 notificationManager.publishNotification(noteId, dialog.localNote.title, dialog.localNote.description,
                                                         new Date(dialog.localNote.reminderTimestamp));

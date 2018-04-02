@@ -127,7 +127,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="114"/>
+        <location filename="../qml/pages/MainPage.qml" line="113"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -168,34 +168,6 @@
     <message>
         <location filename="../qml/menu/PushUpMenu.qml" line="12"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SettingsPage</name>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="12"/>
-        <source>Login via Evernote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="13"/>
-        <source>Synchronize data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="24"/>
-        <source>Synchronization is runned</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="34"/>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="42"/>
-        <source>Logout from Evernote</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -15,7 +15,6 @@ Description: |
   - Create notes, set time reminders.
   - Add photos and drawings.
   - Order notes by tags.
-  - Synchronize notes with the Evernote account.
 
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine

@@ -3,9 +3,6 @@
 
 #include <QObject>
 #include <QSettings>
-#include "lib/QEverCloud/QEverCloud/include/QEverCloud.h"
-
-using namespace qevercloud;
 
 class Settings : public QObject
 {
@@ -20,7 +17,7 @@ public:
     Q_INVOKABLE void setValue(const QString &key, const QVariant &value = QVariant());
     Q_INVOKABLE QVariant value(const QString &key);
     Q_INVOKABLE QString valueToString(const QString &key);
-    Q_INVOKABLE Timestamp valueToTimestamp(const QString &key);
+    Q_INVOKABLE qlonglong valueToTimestamp(const QString &key);
     Q_INVOKABLE int valueToInt(const QString &key);
     Q_INVOKABLE bool contains(const QString &key);
 

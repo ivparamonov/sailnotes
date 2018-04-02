@@ -3,11 +3,8 @@ TARGET = harbour-sailnotes
 CONFIG += sailfishapp c++11
 PKGCONFIG += nemonotifications-qt5
 
-include(lib/QEverCloud/QEverCloud/QEverCloud.pro)
-
 SOURCES += src/sailnotes.cpp \
     src/file_helper.cpp \
-    src/evernote_synchronizer.cpp \
     src/settings.cpp \
     src/database_manager.cpp \
     src/note_list_model.cpp \
@@ -36,7 +33,6 @@ TRANSLATIONS += translations/harbour-sailnotes-ru.ts
 
 HEADERS += \
     src/file_helper.h \
-    src/evernote_synchronizer.h \
     src/settings.h \
     src/database_manager.h \
     src/note_list_model.h \
@@ -56,8 +52,6 @@ DISTFILES += \
     qml/dialogs/EditNoteDialog.qml \
     qml/pages/NoteDetailsPage.qml \
     qml/menu/PushUpMenu.qml \
-    qml/pages/EvernoteAuthPage.qml \
-    qml/pages/SettingsPage.qml \
     qml/pages/TagsPage.qml \
     qml/dialogs/EditReminderDialog.qml \
     harbour-sailnotes.desktop \

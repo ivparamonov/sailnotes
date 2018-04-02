@@ -6,7 +6,6 @@
 #include <QTranslator>
 #include <sailfishapp.h>
 #include "file_helper.h"
-#include "evernote_synchronizer.h"
 #include "settings.h"
 #include "database_manager.h"
 #include "note_list_model.h"
@@ -26,8 +25,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<DatabaseManager>("harbour.sailnotes.databaseManager", 1, 0, "DatabaseManager");
     qmlRegisterType<NotificationManager>("harbour.sailnotes.notificationManager", 1, 0,
                                          "NotificationManager");
-    qmlRegisterType<EvernoteSynchronizer>("harbour.sailnotes.evernoteSynchronizer", 1, 0,
-                                          "EvernoteSynchronizer");
     QSettings settings("FRUCT", "SailNotes");
     settings.setPath(QSettings::NativeFormat, QSettings::UserScope,
                      QDir(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation))

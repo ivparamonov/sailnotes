@@ -49,7 +49,7 @@ QString Settings::valueToString(const QString &key)
  * @param key The setting key
  * @return The setting value as Timestamp.
  */
-Timestamp Settings::valueToTimestamp(const QString &key)
+qlonglong Settings::valueToTimestamp(const QString &key)
 {
     return settings.value(key).toLongLong();
 }
