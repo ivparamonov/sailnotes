@@ -7,10 +7,5 @@ PushUpMenu {
         text: qsTr("Tags")
         onClicked: pageStack.push(Qt.resolvedUrl("../pages/TagsPage.qml"))
     }
-
-    MenuItem {
-        text: qsTr("Settings")
-        onClicked: pageStack.push(Qt.resolvedUrl("../pages/SettingsPage.qml"))
-    }
 }
 

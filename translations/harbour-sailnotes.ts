@@ -165,11 +165,6 @@
         <source>Tags</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../qml/menu/PushUpMenu.qml" line="12"/>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>TagsPage</name>

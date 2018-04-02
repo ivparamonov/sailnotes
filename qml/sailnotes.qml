@@ -2,7 +2,6 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
 import harbour.sailnotes.fileHelper 1.0
-import harbour.sailnotes.settings 1.0
 import harbour.sailnotes.noteListModel 1.0
 import harbour.sailnotes.databaseManager 1.0
 import harbour.sailnotes.notificationManager 1.0
@@ -18,7 +17,6 @@ ApplicationWindow
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
 
-    Settings { id: settings }
     FileHelper { id: fileHelper }
     NoteListModel { id: noteListModel }
     DatabaseManager { id: databaseManager }

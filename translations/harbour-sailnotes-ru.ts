@@ -133,10 +133,6 @@
 <context>
     <name>PushUpMenu</name>
     <message>
-        <source>Settings</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
         <source>Tags</source>
         <translation>Метки</translation>
     </message>

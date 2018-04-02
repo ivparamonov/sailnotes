@@ -5,7 +5,6 @@ PKGCONFIG += nemonotifications-qt5
 
 SOURCES += src/sailnotes.cpp \
     src/file_helper.cpp \
-    src/settings.cpp \
     src/database_manager.cpp \
     src/note_list_model.cpp \
     src/local_note.cpp \
@@ -33,7 +32,6 @@ TRANSLATIONS += translations/harbour-sailnotes-ru.ts
 
 HEADERS += \
     src/file_helper.h \
-    src/settings.h \
     src/database_manager.h \
     src/note_list_model.h \
     src/local_note.h \
