@@ -107,6 +107,14 @@
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
+    <message>
+        <source>Add a new note</source>
+        <translation type="unfinished">Добавить новую заметку</translation>
+    </message>
+    <message>
+        <source>Tags</source>
+        <translation type="unfinished">Метки</translation>
+    </message>
 </context>
 <context>
     <name>NoteDetailsPage</name>
@@ -121,20 +129,6 @@
     <message>
         <source>Reminder</source>
         <translation>Напоминание</translation>
-    </message>
-</context>
-<context>
-    <name>PullDownMenu</name>
-    <message>
-        <source>Add a new note</source>
-        <translation>Добавить новую заметку</translation>
-    </message>
-</context>
-<context>
-    <name>PushUpMenu</name>
-    <message>
-        <source>Tags</source>
-        <translation>Метки</translation>
     </message>
 </context>
 <context>

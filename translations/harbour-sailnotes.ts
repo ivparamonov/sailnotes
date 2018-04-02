@@ -117,17 +117,27 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="23"/>
+        <location filename="../qml/pages/MainPage.qml" line="12"/>
+        <source>Add a new note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="19"/>
+        <source>Tags</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MainPage.qml" line="31"/>
         <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="87"/>
+        <location filename="../qml/pages/MainPage.qml" line="95"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="113"/>
+        <location filename="../qml/pages/MainPage.qml" line="121"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -147,22 +157,6 @@
     <message>
         <location filename="../qml/pages/NoteDetailsPage.qml" line="54"/>
         <source>Reminder</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PullDownMenu</name>
-    <message>
-        <location filename="../qml/menu/PullDownMenu.qml" line="7"/>
-        <source>Add a new note</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PushUpMenu</name>
-    <message>
-        <location filename="../qml/menu/PushUpMenu.qml" line="7"/>
-        <source>Tags</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

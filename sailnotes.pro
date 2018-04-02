@@ -42,14 +42,12 @@ DISTFILES += \
     qml/pages/CameraPage.qml \
     qml/pages/EditTextNoteDialog.qml \
     qml/pages/MainPage.qml \
-    qml/menu/PullDownMenu.qml \
     qml/pages/EditImagePhotoNoteDialog.qml \
     qml/pages/AddPhotoNoteDialog.qml \
     qml/pages/AddPictureNoteDialog.qml \
     qml/dialogs/AddPictureDialog.qml \
     qml/dialogs/EditNoteDialog.qml \
     qml/pages/NoteDetailsPage.qml \
-    qml/menu/PushUpMenu.qml \
     qml/pages/TagsPage.qml \
     qml/dialogs/EditReminderDialog.qml \
     harbour-sailnotes.desktop \

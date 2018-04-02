@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../menu"
 
 Page {
 
@@ -8,9 +7,18 @@ Page {
 
     SilicaListView {
 
-        PullDownMenu { }
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Add a new note")
+                onClicked: appWindow.openAddNoteDialog();
+            }
+        }
+
         PushUpMenu {
-            visible: tag.length === 0
+            MenuItem {
+                text: qsTr("Tags")
+                onClicked: pageStack.push(Qt.resolvedUrl("TagsPage.qml"))
+            }
         }
 
         id: listView
