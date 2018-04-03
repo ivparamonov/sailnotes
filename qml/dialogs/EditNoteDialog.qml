@@ -45,7 +45,7 @@ Dialog {
                     var now = new Date();
                     var dateTime = note.reminderTimestamp > 0
                             ? new Date(note.reminderTimestamp)
-                            : new Date(now.getFullYear(), now.getMonth(), now.getDay(),
+                            : new Date(now.getFullYear(), now.getMonth(), now.getDate(),
                                        now.getHours(), now.getMinutes() + 1, 0, 0);
                     var dialog = pageStack.push("../dialogs/EditReminderDialog.qml",
                                                 {dateTime: dateTime});
