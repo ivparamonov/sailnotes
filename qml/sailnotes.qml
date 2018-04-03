@@ -2,14 +2,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
 import harbour.sailnotes.fileHelper 1.0
-import harbour.sailnotes.notificationManager 1.0
 
 import harbour.sailnotes 1.0
 import "pages"
 import "persistence"
+import "components"
 
-ApplicationWindow
-{
+ApplicationWindow {
     id: appWindow
     initialPage: Component { MainPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -17,11 +16,11 @@ ApplicationWindow
     _defaultPageOrientations: Orientation.All
 
     FileHelper { id: fileHelper }
-    NotificationManager { id: notificationManager }
 
     AudioRecorder { id: audioRecorder }
-    NotesDao { id: dao }
     NoteListModel { id: noteListModel }
+    NotificationManager { id: notificationManager }
+    NotesDao { id: dao }
 
     function openAddNoteDialog() {
         var note = createNote("", "", "", "", "", 0);
@@ -31,9 +30,8 @@ ApplicationWindow
                 dialog.note.id = noteId;
                 noteListModel.addNote(dialog.note);
                 if (dialog.note.reminderTimestamp > 0) {
-                    notificationManager.publishNotification(noteId, dialog.note.title,
-                                                            dialog.note.description,
-                                                            new Date(dialog.note.reminderTimestamp));
+                    notificationManager.scheduleNotification(noteId, dialog.note.title,
+                                            dialog.note.description, dialog.note.reminderTimestamp);
                 }
             });
         });

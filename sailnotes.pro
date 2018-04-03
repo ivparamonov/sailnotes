@@ -1,11 +1,12 @@
 TARGET = harbour-sailnotes
 
-CONFIG += sailfishapp c++11
+CONFIG += sailfishapp
 PKGCONFIG += nemonotifications-qt5
+
+QT += dbus multimedia
 
 SOURCES += src/sailnotes.cpp \
     src/file_helper.cpp \
-    src/notification_manager.cpp \
     src/audiorecorder.cpp
 
 OTHER_FILES += qml/sailnotes.qml \
@@ -23,13 +24,15 @@ CONFIG += sailfishapp_i18n
 localization.files = localization
 localization.path = /usr/share/harbour-sailnotes/localization
 
-INSTALLS += localization
+dbus.files = dbus/org.fruct.yar.sailnotes.service
+dbus.path = /usr/share/dbus-1/services/
+
+INSTALLS += localization dbus
 
 TRANSLATIONS += translations/harbour-sailnotes-ru.ts
 
 HEADERS += \
     src/file_helper.h \
-    src/notification_manager.h \
     src/audiorecorder.h
 
 DISTFILES += \
@@ -46,6 +49,6 @@ DISTFILES += \
     harbour-sailnotes.desktop \
     qml/components/AudioPlayer.qml \
     qml/persistence/NotesDao.qml \
-    qml/persistence/NoteListModel.qml
-
-QT += core network sql xml gui dbus multimedia
+    qml/persistence/NoteListModel.qml \
+    qml/components/NotificationManager.qml \
+    dbus/org.fruct.yar.sailnotes.service

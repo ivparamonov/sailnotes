@@ -90,9 +90,9 @@ Page {
                                 });
                             }
                             if (dialog.note.reminderTimestamp > 0) {
-                                notificationManager.publishNotification(
+                                notificationManager.scheduleNotification(
                                             id, dialog.note.title, dialog.note.description,
-                                            new Date(dialog.note.reminderTimestamp));
+                                            dialog.note.reminderTimestamp);
                             } else {
                                 notificationManager.removeNotification(id);
                             }
