@@ -6,8 +6,8 @@
 #include <QStandardPaths>
 
 /*!
- * \brief Constructor initializes the recorder field.
- * \param parent
+ * \brief Constructor initializes the 'recorder' and 'recording' field.
+ * \param parent The parent QObject instance.
  */
 AudioRecorder::AudioRecorder(QObject* parent) : QObject(parent) {
     recorder = new QAudioRecorder(this);
@@ -32,7 +32,7 @@ bool AudioRecorder::isRecording() const {
  * \return The full path to the audio file.
  */
 QString AudioRecorder::createAudioFileName() {
-    QDir dir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+    QDir dir(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/sailnotes/");
     if (!dir.exists()) dir.mkpath(".");
     return QString("%1/voice%2.wav").arg(dir.path()).arg(QUuid::createUuid().toString());
 }
