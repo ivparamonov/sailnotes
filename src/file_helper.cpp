@@ -15,7 +15,7 @@
 FileHelper::FileHelper(QObject* parent) : QObject(parent) {
     picturesFolderPath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)
             + "/sailnotes/";
-    if (!QDir(path).exists()) QDir().mkdir(path);
+    if (!QDir(picturesFolderPath).exists()) QDir().mkdir(picturesFolderPath);
 }
 
 /**

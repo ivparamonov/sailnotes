@@ -9,7 +9,7 @@ SOURCES += src/sailnotes.cpp \
     src/file_helper.cpp \
     src/audiorecorder.cpp
 
-OTHER_FILES += qml/sailnotes.qml \
+OTHER_FILES += \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
     qml/pages/SecondPage.qml \
@@ -51,4 +51,5 @@ DISTFILES += \
     qml/persistence/NotesDao.qml \
     qml/persistence/NoteListModel.qml \
     qml/components/NotificationManager.qml \
-    dbus/org.fruct.yar.sailnotes.service
+    dbus/org.fruct.yar.sailnotes.service \
+    qml/harbour-sailnotes.qml
