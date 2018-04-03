@@ -25,57 +25,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="33"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="35"/>
         <source>Add a note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="33"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="35"/>
         <source>Edit the note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="38"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="40"/>
         <source>Reminder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="40"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="42"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="55"/>
-        <source>Tags:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="56"/>
-        <source>Enter tags with a comma as a delimiter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="66"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="57"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="67"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="58"/>
         <source>Enter the note title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="114"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="104"/>
         <source>Add a picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="126"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="116"/>
         <source>Add a photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="173"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="163"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -117,27 +107,22 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="12"/>
+        <location filename="../qml/pages/MainPage.qml" line="10"/>
         <source>Add a new note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="19"/>
-        <source>Tags</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainPage.qml" line="31"/>
+        <location filename="../qml/pages/MainPage.qml" line="22"/>
         <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="95"/>
+        <location filename="../qml/pages/MainPage.qml" line="78"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="121"/>
+        <location filename="../qml/pages/MainPage.qml" line="105"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -145,36 +130,13 @@
 <context>
     <name>NoteDetailsPage</name>
     <message>
-        <location filename="../qml/pages/NoteDetailsPage.qml" line="27"/>
+        <location filename="../qml/pages/NoteDetailsPage.qml" line="26"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/NoteDetailsPage.qml" line="41"/>
-        <source>Tags</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/NoteDetailsPage.qml" line="54"/>
+        <location filename="../qml/pages/NoteDetailsPage.qml" line="40"/>
         <source>Reminder</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TagsPage</name>
-    <message>
-        <location filename="../qml/pages/TagsPage.qml" line="11"/>
-        <source>Tags</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/TagsPage.qml" line="28"/>
-        <source>note</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/TagsPage.qml" line="28"/>
-        <source>notes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

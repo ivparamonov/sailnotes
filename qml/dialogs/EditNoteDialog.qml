@@ -6,13 +6,15 @@ import "../components"
 
 Dialog {
 
-    property var localNote
+    property var note
     property bool needRemovePicture: false
     property var picturesToRemove: []
     property string placeholder: qsTr("Enter the note description")
-    property bool placeholderVisible: localNote.description.length === 0
+    property bool placeholderVisible: note.description.length === 0
 
     canAccept: titleTextField.text.length > 0 || (!placeholderVisible && descriptionTextEdit.text.length > 0)
+
+    ListModel { id: gridModel }
 
     SilicaFlickable {
 
@@ -29,39 +31,28 @@ Dialog {
             DialogHeader {
                 id: header
                 width: parent.width
-                title: localNote.title.length === 0 && localNote.description.length === 0
+                title: note.title.length === 0 && note.description.length === 0
                        ? qsTr("Add a note") : qsTr("Edit the note")
             }
 
             ValueButton {
                 width: parent.width
                 label: qsTr("Reminder").concat(": ")
-                value: localNote.reminderTimestamp > 0 ? Qt.formatDateTime(new Date(localNote.reminderTimestamp),
+                value: note.reminderTimestamp > 0 ? Qt.formatDateTime(new Date(note.reminderTimestamp),
                                     "dd MMM yyyy hh:mm".concat(timeFormatConfig.value === "24" ? "" : " AP")) : qsTr("Select")
                 onClicked: {
                     var dialog = pageStack.push("../dialogs/EditReminderDialog.qml",
-                                                {dateTime: new Date(localNote.reminderTimestamp)});
+                                                {dateTime: new Date(note.reminderTimestamp)});
                     dialog.accepted.connect(function() {
-                        localNote.reminderTimestamp = dialog.dateTime.getTime();
+                        note.reminderTimestamp = dialog.dateTime.getTime();
                     });
                 }
             }
 
             TextField {
-                id: tagsTextField
-                width: parent.width
-                text: localNote.tags
-                labelVisible: true
-                label: qsTr("Tags:")
-                placeholderText: qsTr("Enter tags with a comma as a delimiter")
-                EnterKey.iconSource: "image://theme/icon-m-enter-next"
-                EnterKey.onClicked:titleTextField.focus = true
-            }
-
-            TextField {
                 id: titleTextField
                 width: parent.width
-                text: localNote.title
+                text: note.title
                 labelVisible: true
                 label: qsTr("Title:")
                 placeholderText: qsTr("Enter the note title")
@@ -73,9 +64,8 @@ Dialog {
                 x: Theme.paddingLarge
                 id: descriptionTextEdit
                 width: parent.width - Theme.paddingLarge
-                text: placeholderVisible ? placeholder : localNote.description
+                text: placeholderVisible ? placeholder : note.description
                 font.pixelSize: Theme.fontSizeMedium
-                textFormat: Text.RichText
                 color: placeholderVisible ? Theme.secondaryColor : Theme.primaryColor
                 wrapMode: TextEdit.Wrap
                 inputMethodHints: Qt.ImhNoPredictiveText;
@@ -115,8 +105,8 @@ Dialog {
                     onClicked: {
                         var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/AddPictureDialog.qml"));
                         dialog.accepted.connect(function() {
-                            localNote.addPicturePaths(dialog.picturePath);
-                            localNote.addHashes(fileHelper.generateFileMD5Hash(dialog.picturePath));
+                            note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
+                                    + dialog.picturePath;
                             gridModel.append({path: dialog.picturePath});
                         });
                     }
@@ -127,8 +117,8 @@ Dialog {
                     onClicked: {
                         var dialog = pageStack.push(Qt.resolvedUrl("../pages/CameraPage.qml"));
                         dialog.accepted.connect(function() {
-                            localNote.addPicturePaths(dialog.photoPath);
-                            localNote.addHashes(fileHelper.generateFileMD5Hash(dialog.picturePath));
+                            note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
+                                    + dialog.photoPath;
                             gridModel.append({path: dialog.photoPath});
                         });
                     }
@@ -138,7 +128,7 @@ Dialog {
                 id: audioPlayer
                 x: Theme.paddingMedium
                 width: parent.width - 2 * Theme.paddingMedium
-                audioFilePath: localNote.audioFilePath
+                audioFilePath: note.audioFilePath
             }
 
             SilicaGridView {
@@ -148,7 +138,7 @@ Dialog {
                 height: cellHeight * (gridModel.count + 1) / 2
                 cellWidth: width / 2
                 cellHeight: width / 2
-                model: ListModel { id: gridModel }
+                model: gridModel
 
                 delegate: Item {
                     x: Theme.paddingLarge
@@ -174,15 +164,16 @@ Dialog {
                             onClicked: {
                                 needRemovePicture = true;
                                 picturesToRemove.push(path);
-                                localNote.removeHash(localNote.getHashes()[localNote.getPicturePaths().indexOf(path)]);
-                                localNote.removePicturePath(path);
+                                note.picturePaths.replace("," + path, '');
                                 gridView.model.remove(index);
                             }
                         }
                     }
                 }
                 Component.onCompleted: {
-                    localNote.getPicturePaths().forEach(function (path) {
+                    note.picturePaths.split(',').filter(function(path) {
+                        return path.length > 0;
+                    }).forEach(function(path) {
                         gridModel.append({path: path});
                     });
                 }
@@ -191,11 +182,8 @@ Dialog {
     }
 
     onAccepted: {
-        localNote.tags = tagsTextField.text;
-        localNote.title = titleTextField.text;
-        localNote.description = placeholderVisible ? "" : descriptionTextEdit.text
-                .substring(descriptionTextEdit.text.indexOf("<body"), descriptionTextEdit.text.indexOf("</body>"))
-                .replace(/<body.*?>([\s\S]*)/,"$1");
-        localNote.audioFilePath = audioPlayer.audioFileExists ? audioPlayer.audioFilePath : "";
+        note.title = titleTextField.text;
+        note.description = placeholderVisible ? "" : descriptionTextEdit.text;
+        note.audioFilePath = audioPlayer.audioFileExists ? audioPlayer.audioFilePath : "";
     }
 }

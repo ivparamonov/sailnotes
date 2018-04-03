@@ -5,9 +5,6 @@ PKGCONFIG += nemonotifications-qt5
 
 SOURCES += src/sailnotes.cpp \
     src/file_helper.cpp \
-    src/database_manager.cpp \
-    src/note_list_model.cpp \
-    src/local_note.cpp \
     src/notification_manager.cpp \
     src/audiorecorder.cpp
 
@@ -32,9 +29,6 @@ TRANSLATIONS += translations/harbour-sailnotes-ru.ts
 
 HEADERS += \
     src/file_helper.h \
-    src/database_manager.h \
-    src/note_list_model.h \
-    src/local_note.h \
     src/notification_manager.h \
     src/audiorecorder.h
 
@@ -48,9 +42,10 @@ DISTFILES += \
     qml/dialogs/AddPictureDialog.qml \
     qml/dialogs/EditNoteDialog.qml \
     qml/pages/NoteDetailsPage.qml \
-    qml/pages/TagsPage.qml \
     qml/dialogs/EditReminderDialog.qml \
     harbour-sailnotes.desktop \
-    qml/components/AudioPlayer.qml
+    qml/components/AudioPlayer.qml \
+    qml/persistence/NotesDao.qml \
+    qml/persistence/NoteListModel.qml
 
 QT += core network sql xml gui dbus multimedia

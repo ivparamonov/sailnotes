@@ -3,8 +3,6 @@ import Sailfish.Silica 1.0
 
 Page {
 
-    property string tag
-
     SilicaListView {
 
         PullDownMenu {
@@ -14,21 +12,14 @@ Page {
             }
         }
 
-        PushUpMenu {
-            MenuItem {
-                text: qsTr("Tags")
-                onClicked: pageStack.push(Qt.resolvedUrl("TagsPage.qml"))
-            }
-        }
-
-        id: listView
+        id: noteListView
         model: noteListModel
         anchors.fill: parent
 
         VerticalScrollDecorator {}
 
         header: PageHeader {
-            title: tag.length === 0 ? qsTr("Notes") : tag
+            title: qsTr("Notes")
         }
 
         delegate: ListItem {
@@ -45,9 +36,7 @@ Page {
                     id: titleLabel
                     width: parent.width
                     anchors {
-                        left: parent.left
-                        right: image.left
-                        top: parent.top
+                        left: parent.left; right: image.left; top: parent.top
                         leftMargin: Theme.paddingLarge
                     }
                     text: title
@@ -57,11 +46,8 @@ Page {
                 Label {
                     id: descriptionLabel
                     anchors {
-                        right: image.left
-                        left: parent.left
-                        top: titleLabel.bottom
-                        leftMargin: Theme.paddingLarge
-                        rightMargin: Theme.paddingLarge
+                        right: image.left; left: parent.left; top: titleLabel.bottom
+                        leftMargin: Theme.paddingLarge; rightMargin: Theme.paddingLarge
                     }
                     font.pixelSize: Theme.fontSizeExtraSmall
                     text: description
@@ -73,9 +59,7 @@ Page {
                     id: image
                     width: picturePaths.split(",")[0] === "" ?  0 : parent.width / 4
                     anchors {
-                        right: parent.right
-                        top: parent.top
-                        bottom: parent.bottom
+                        right: parent.right; top: parent.top; bottom: parent.bottom
                         leftMargin: Theme.paddingLarge
                     }
                     fillMode: Image.PreserveAspectFit
@@ -86,65 +70,59 @@ Page {
             onClicked: {
                 pageStack.push(Qt.resolvedUrl("NoteDetailsPage.qml"),
                                {title: title, description: description, picturePaths: picturePaths,
-                                   tags: tagNames, reminderTimestamp: reminderTimestamp,
-                                   audioFilePath: audioFilePath});
+                                   reminderTimestamp: reminderTimestamp, audioFilePath: audioFilePath});
             }
 
             menu: ContextMenu {
                 MenuItem {
                     text: qsTr("Edit")
                     onClicked: {
-                        var localNote = appWindow.createLocalNote(title, description, picturePaths, hashes, tagNames,
-                                                                  tagExternalIds, reminderTimestamp);
-                        localNote.id = id;
-                        localNote.externalId = externalId;
-                        localNote.audioFilePath = audioFilePath;
-                        var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/EditNoteDialog.qml"), {localNote: localNote});
+                        var note = appWindow.createNote(title, description, picturePaths,
+                                                        audioFilePath, reminderTimestamp);
+                        note.id = id;
+                        var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/EditNoteDialog.qml"),
+                                                    {note: note});
+
                         dialog.accepted.connect(function() {
                             if (dialog.needRemovePicture) {
                                 dialog.picturesToRemove.forEach(function(path) {
                                     fileHelper.removeFile(path);
                                 });
                             }
-                            databaseManager.updateNote(dialog.localNote);
-                            if (dialog.localNote.reminderTimestamp > 0) {
-                                notificationManager.publishNotification(id, dialog.localNote.title, dialog.localNote.description,
-                                                                        new Date(dialog.localNote.reminderTimestamp));
+                            if (dialog.note.reminderTimestamp > 0) {
+                                notificationManager.publishNotification(
+                                            id, dialog.note.title, dialog.note.description,
+                                            new Date(dialog.note.reminderTimestamp));
                             } else {
                                 notificationManager.removeNotification(id);
                             }
-                            listView.model.updateModel();
+                            dao.updateNote(dialog.note);
+                            noteListModel.updateNote(model.index, dialog.note);
                         });
                     }
                 }
                 MenuItem {
                     text: qsTr("Delete")
                     onClicked: {
-                        appWindow.createLocalNote(title, description, picturePaths, hashes, tagNames,
-                                                  tagExternalIds, reminderTimestamp)
-                            .getPicturePaths().forEach(function(path) {
-                                fileHelper.removeFile(path);
-                            });
+                        appWindow.removePictureFiles(picturePaths);
                         audioRecorder.removeAudioFile(audioFilePath);
-                        databaseManager.deleteNoteById(id);
+                        dao.deleteNote(id);
+                        noteListModel.remove(model.index);
                         notificationManager.removeNotification(id);
-                        listView.model.updateModel();
                     }
                 }
             }
         }
-        Component.onCompleted: {
-            noteListModel.setNotesTag(tag);
-            noteListModel.updateModel();
-        }
     }
-    onStatusChanged: {
-        if (status == PageStatus.Active && tag.length == 0) {
-            pageStack.backNavigation = false;
-            pageStack.forwardNavigation = false;
-        } else if (status == PageStatus.Inactive) {
-            pageStack.backNavigation = true;
-            pageStack.forwardNavigation = true;
-        }
+
+    Component.onCompleted: refreshNoteList()
+
+    function refreshNoteList() {
+        noteListModel.clear();
+        dao.retrieveAllNotes(function(notes) {
+            for (var i = 0; i < notes.length; i++) {
+                noteListModel.addNote(notes.item(i));
+            }
+        });
     }
 }

@@ -6,21 +6,15 @@
 #include <QTranslator>
 #include <sailfishapp.h>
 #include "file_helper.h"
-#include "database_manager.h"
-#include "note_list_model.h"
 #include "notification_manager.h"
 
 #include "audiorecorder.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     QGuiApplication* app =  SailfishApp::application(argc, argv);
     QQuickView* view = SailfishApp::createView();
-    qmlRegisterType<AudioRecorder>( "harbour.sailnotes", 1, 0, "AudioRecorder" );
-    qmlRegisterType<LocalNote>("harbour.sailnotes.localNote", 1, 0, "LocalNote");
+    qmlRegisterType<AudioRecorder>( "harbour.sailnotes", 1, 0, "AudioRecorder");
     qmlRegisterType<FileHelper>("harbour.sailnotes.fileHelper", 1, 0, "FileHelper");
-    qmlRegisterType<NoteListModel>("harbour.sailnotes.noteListModel", 1, 0, "NoteListModel");
-    qmlRegisterType<DatabaseManager>("harbour.sailnotes.databaseManager", 1, 0, "DatabaseManager");
     qmlRegisterType<NotificationManager>("harbour.sailnotes.notificationManager", 1, 0,
                                          "NotificationManager");
     QTranslator translator;

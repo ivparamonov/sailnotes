@@ -14,7 +14,6 @@ Description: |
   SailNotes is simply the quickest way to offload ideas, thoughts, and to-dos without losing focus.
   - Create notes, set time reminders.
   - Add photos and drawings.
-  - Order notes by tags.
 
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine

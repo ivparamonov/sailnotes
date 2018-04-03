@@ -32,7 +32,6 @@ BuildRequires:  desktop-file-utils
 SailNotes is simply the quickest way to offload ideas, thoughts, and to-dos without losing focus.
 - Create notes, set time reminders.
 - Add photos and drawings.
-- Order notes by tags.
 
 
 %prep

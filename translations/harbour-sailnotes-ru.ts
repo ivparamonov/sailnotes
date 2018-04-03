@@ -38,14 +38,6 @@
         <translation>Выбрать</translation>
     </message>
     <message>
-        <source>Tags:</source>
-        <translation>Метки:</translation>
-    </message>
-    <message>
-        <source>Enter tags with a comma as a delimiter</source>
-        <translation>Введите метки через запятую</translation>
-    </message>
-    <message>
         <source>Title:</source>
         <translation>Заголовок:</translation>
     </message>
@@ -111,10 +103,6 @@
         <source>Add a new note</source>
         <translation type="unfinished">Добавить новую заметку</translation>
     </message>
-    <message>
-        <source>Tags</source>
-        <translation type="unfinished">Метки</translation>
-    </message>
 </context>
 <context>
     <name>NoteDetailsPage</name>
@@ -123,27 +111,8 @@
         <translation>Детали</translation>
     </message>
     <message>
-        <source>Tags</source>
-        <translation>Метки</translation>
-    </message>
-    <message>
         <source>Reminder</source>
         <translation>Напоминание</translation>
-    </message>
-</context>
-<context>
-    <name>TagsPage</name>
-    <message>
-        <source>Tags</source>
-        <translation>Метки</translation>
-    </message>
-    <message>
-        <source>note</source>
-        <translation>зам.</translation>
-    </message>
-    <message>
-        <source>notes</source>
-        <translation>зам.</translation>
     </message>
 </context>
 </TS>

@@ -10,7 +10,6 @@ Page {
     property string title
     property string description
     property string picturePaths
-    property string tags
     property double reminderTimestamp
     property string audioFilePath
 
@@ -30,24 +29,11 @@ Page {
         Column {
             id: column
             width: parent.width
-            height: tagsLabel.contentHeight + reminderLabel.contentHeight + titleLabel.contentHeight
+            height: reminderLabel.contentHeight + titleLabel.contentHeight
                     + descriptionLabel.contentHeight + imageListView.contentHeight
                     + audioPlayer.height + 10 * Theme.paddingLarge
             anchors.top: header.bottom
             spacing: Theme.paddingLarge
-
-            Label {
-                id: tagsLabel
-                text: qsTr("Tags").concat(": ") + tags
-                font.pixelSize: Theme.fontSizeExtraSmall
-                wrapMode: Text.Wrap
-                visible: tags.length > 0
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    margins: Theme.paddingLarge
-                }
-            }
 
             Label {
                 id: reminderLabel

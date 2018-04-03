@@ -2,12 +2,11 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
 import harbour.sailnotes.fileHelper 1.0
-import harbour.sailnotes.noteListModel 1.0
-import harbour.sailnotes.databaseManager 1.0
 import harbour.sailnotes.notificationManager 1.0
 
 import harbour.sailnotes 1.0
 import "pages"
+import "persistence"
 
 ApplicationWindow
 {
@@ -18,10 +17,11 @@ ApplicationWindow
     _defaultPageOrientations: Orientation.All
 
     FileHelper { id: fileHelper }
-    NoteListModel { id: noteListModel }
-    DatabaseManager { id: databaseManager }
     NotificationManager { id: notificationManager }
+
     AudioRecorder { id: audioRecorder }
+    NotesDao { id: dao }
+    NoteListModel { id: noteListModel }
 
     ConfigurationValue {
         id: timeFormatConfig
@@ -29,32 +29,36 @@ ApplicationWindow
     }
 
     function openAddNoteDialog() {
-        var localNote = createLocalNote("", "", "", "", "", "", 0);
-        var dialog = pageStack.push(Qt.resolvedUrl("dialogs/EditNoteDialog.qml"), {localNote: localNote});
+        var note = createNote("", "", "", "", "", 0);
+        var dialog = pageStack.push(Qt.resolvedUrl("dialogs/EditNoteDialog.qml"), {note: note});
         dialog.accepted.connect(function() {
-            var noteId = databaseManager.createNote(dialog.localNote);
-            noteListModel.updateModel();
-            if (dialog.localNote.reminderTimestamp > 0) {
-                notificationManager.publishNotification(noteId, dialog.localNote.title, dialog.localNote.description,
-                                                        new Date(dialog.localNote.reminderTimestamp));
-            }
+            var noteId = dao.createNote(dialog.note, function(noteId) {
+                dialog.note.id = noteId;
+                noteListModel.addNote(dialog.note);
+                if (dialog.note.reminderTimestamp > 0) {
+                    notificationManager.publishNotification(noteId, dialog.note.title,
+                                                            dialog.note.description,
+                                                            new Date(dialog.note.reminderTimestamp));
+                }
+            });
         });
         dialog.rejected.connect(function() {
-            dialog.localNote.getPicturePaths().forEach(function(path) {
-                fileHelper.removeFile(path);
-            });
+            removePictureFiles(dialog.note.picturePaths);
         });
     }
 
-    function createLocalNote(title, description, picturePath, hashes, tagNames, tagExternalIds, reminderTimestamp) {
-        var localNote = Qt.createQmlObject("import QtQuick 2.0; import harbour.sailnotes.localNote 1.0;
-                                            LocalNote {}", parent);
-        localNote.title = title;
-        localNote.description = description;
-        localNote.picturePaths = picturePath;
-        localNote.hashes = hashes;
-        localNote.setTagsFromStrings(tagNames, tagExternalIds);
-        localNote.reminderTimestamp = reminderTimestamp;
-        return localNote;
+    function createNote(title, description, picturePaths, audioFilePath, reminderTimestamp) {
+        return {
+            title: title, description: description, picturePaths: picturePaths,
+            audioFilePath: audioFilePath, reminderTimestamp: reminderTimestamp
+        };
+    }
+
+    function removePictureFiles(picturePathsAsString) {
+        picturePathsAsString.split(",").filter(function(path) {
+            return path.length > 0;
+        }).forEach(function(path) {
+            fileHelper.removeFile(path);
+        });
     }
 }
