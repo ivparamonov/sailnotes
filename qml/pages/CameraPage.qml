@@ -19,9 +19,9 @@ Dialog {
         }
     }
     VideoOutput {
-        source: camera
         anchors.fill: parent
-        focus : visible
+        source: camera
+        focus: visible
         fillMode: VideoOutput.PreserveAspectFit
         orientation: Orientation.All
         MouseArea {

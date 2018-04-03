@@ -12,57 +12,54 @@ Dialog {
     }
 
     Canvas {
-        id: canvas
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: header.bottom
-            bottom: parent.bottom
-            margins: Theme.paddingLarge
-        }
         property real lastX
         property real lastY
         property bool filled: false
+
+        id: canvas
+        anchors {
+            left: parent.left; right: parent.right
+            top: header.bottom; bottom: parent.bottom
+            margins: Theme.paddingLarge
+        }
         onPaint: {
-            var ctx = getContext('2d')
+            var ctx = getContext('2d');
             if (!filled) {
                 ctx.fillStyle = Qt.rgba(1, 1, 1, 0.5);
                 ctx.fillRect(0, 0, width, height);
                 filled = true;
             }
-            ctx.lineWidth = 5
-            ctx.strokeStyle = "black"
-            ctx.beginPath()
-            ctx.moveTo(lastX, lastY)
-            lastX = area.mouseX
-            lastY = area.mouseY
-            ctx.lineTo(lastX, lastY)
-            ctx.stroke()
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = "black";
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            lastX = area.mouseX;
+            lastY = area.mouseY;
+            ctx.lineTo(lastX, lastY);
+            ctx.stroke();
         }
         MouseArea {
             id: area
             anchors.fill: parent
             onPressed: {
-                canvas.lastX = mouseX
-                canvas.lastY = mouseY
+                canvas.lastX = mouseX;
+                canvas.lastY = mouseY;
             }
-            onPositionChanged: {
-                canvas.requestPaint()
-            }
+            onPositionChanged: canvas.requestPaint()
         }
     }
     onDone: {
         picturePath = fileHelper.generatePictureFullPath();
-        pageStack.backNavigation = true
         canvas.save(picturePath);
-        pageStack.forwardNavigation = true
-        if (result == DialogResult.Accepted) {
+        if (result === DialogResult.Accepted) {
             picturePath = fileHelper.generatePictureFullPath();
             canvas.save(picturePath);
         }
+        pageStack.backNavigation = true;
+        pageStack.forwardNavigation = true;
     }
     Component.onCompleted: {
-        pageStack.backNavigation = false
-        pageStack.forwardNavigation = false
+        pageStack.backNavigation = false;
+        pageStack.forwardNavigation = false;
     }
 }
