@@ -5,7 +5,7 @@ CoverBackground {
 
     Label {
         anchors.centerIn: parent
-        text: qsTr("SailNotes")
+        text: qsTr("Sailnotes")
     }
 
     CoverActionList {

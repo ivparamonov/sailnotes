@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>AddPictureDialog</name>
     <message>
@@ -11,7 +11,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>SailNotes</source>
+        <source>Sailnotes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Edit the note</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать заметку</translation>
     </message>
     <message>
         <source>Reminder</source>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Add a new note</source>
-        <translation type="unfinished">Добавить новую заметку</translation>
+        <translation>Добавить новую заметку</translation>
     </message>
 </context>
 <context>
