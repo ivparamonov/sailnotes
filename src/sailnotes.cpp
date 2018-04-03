@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     QGuiApplication* app =  SailfishApp::application(argc, argv);
     QQuickView* view = SailfishApp::createView();
     qmlRegisterType<AudioRecorder>( "harbour.sailnotes", 1, 0, "AudioRecorder");
-    qmlRegisterType<FileHelper>("harbour.sailnotes.fileHelper", 1, 0, "FileHelper");
+    qmlRegisterType<FileHelper>("harbour.sailnotes", 1, 0, "FileHelper");
     QTranslator translator;
     translator.load("sailnotes-" + QLocale().name(),
                     SailfishApp::pathTo(QString("localization")).toLocalFile());

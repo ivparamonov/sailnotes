@@ -1,9 +1,10 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import org.nemomobile.configuration 1.0
-import harbour.sailnotes.fileHelper 1.0
 
 import harbour.sailnotes 1.0
+import harbour.sailnotes 1.0
+
 import "pages"
 import "persistence"
 import "components"

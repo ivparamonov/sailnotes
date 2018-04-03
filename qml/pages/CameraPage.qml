@@ -27,7 +27,7 @@ Dialog {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                camera.imageCapture.captureToLocation(fileHelper.generatePictureFullName("jpg"));
+                camera.imageCapture.captureToLocation(fileHelper.generatePictureFullPath("jpg"));
             }
         }
     }

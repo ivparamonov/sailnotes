@@ -52,12 +52,12 @@ Dialog {
         }
     }
     onDone: {
-        picturePath = fileHelper.generatePictureFullName();
+        picturePath = fileHelper.generatePictureFullPath();
         pageStack.backNavigation = true
         canvas.save(picturePath);
         pageStack.forwardNavigation = true
         if (result == DialogResult.Accepted) {
-            picturePath = fileHelper.generatePictureFullName();
+            picturePath = fileHelper.generatePictureFullPath();
             canvas.save(picturePath);
         }
     }
