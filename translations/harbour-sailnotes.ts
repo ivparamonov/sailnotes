@@ -40,32 +40,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="42"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="43"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="56"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="57"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="66"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="58"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="67"/>
         <source>Enter the note title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="104"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="113"/>
         <source>Add a picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="116"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="125"/>
         <source>Add a photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="163"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="172"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -89,7 +90,7 @@
     </message>
     <message>
         <location filename="../qml/dialogs/EditReminderDialog.qml" line="28"/>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="43"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="42"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
@@ -99,7 +100,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="59"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="58"/>
         <source>Clear reminder</source>
         <translation type="unfinished"></translation>
     </message>

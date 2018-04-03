@@ -38,13 +38,22 @@ Dialog {
             ValueButton {
                 width: parent.width
                 label: qsTr("Reminder").concat(": ")
-                value: note.reminderTimestamp > 0 ? Qt.formatDateTime(new Date(note.reminderTimestamp),
-                                    "dd MMM yyyy hh:mm".concat(timeFormatConfig.value === "24" ? "" : " AP")) : qsTr("Select")
+                value: note.reminderTimestamp > 0
+                       ? Qt.formatDateTime(new Date(note.reminderTimestamp), "dd MMM yyyy hh:mm")
+                       : qsTr("Select")
                 onClicked: {
+                    var now = new Date();
+                    var dateTime = note.reminderTimestamp > 0
+                            ? new Date(note.reminderTimestamp)
+                            : new Date(now.getFullYear(), now.getMonth(), now.getDay(),
+                                       now.getHours(), now.getMinutes() + 1, 0, 0);
                     var dialog = pageStack.push("../dialogs/EditReminderDialog.qml",
-                                                {dateTime: new Date(note.reminderTimestamp)});
+                                                {dateTime: dateTime});
                     dialog.accepted.connect(function() {
                         note.reminderTimestamp = dialog.dateTime.getTime();
+                        value = note.reminderTimestamp > 0
+                                ? Qt.formatDateTime(new Date(note.reminderTimestamp), "dd MMM yyyy hh:mm")
+                                : qsTr("Select");
                     });
                 }
             }

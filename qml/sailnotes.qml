@@ -23,11 +23,6 @@ ApplicationWindow
     NotesDao { id: dao }
     NoteListModel { id: noteListModel }
 
-    ConfigurationValue {
-        id: timeFormatConfig
-        key: "/sailfish/i18n/lc_timeformat24h"
-    }
-
     function openAddNoteDialog() {
         var note = createNote("", "", "", "", "", 0);
         var dialog = pageStack.push(Qt.resolvedUrl("dialogs/EditNoteDialog.qml"), {note: note});

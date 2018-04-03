@@ -37,8 +37,8 @@ Page {
 
             Label {
                 id: reminderLabel
-                text: qsTr("Reminder").concat(": ") + Qt.formatDateTime(new Date(reminderTimestamp),
-                                         "dd MMM yyyy hh:mm".concat(timeFormatConfig.value === "24" ? "" : " AP"))
+                text: qsTr("Reminder").concat(": ")
+                      + Qt.formatDateTime(new Date(reminderTimestamp), "dd MMM yyyy hh:mm")
                 font.pixelSize: Theme.fontSizeExtraSmall
                 wrapMode: Text.Wrap
                 visible: reminderTimestamp > 0

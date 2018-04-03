@@ -39,14 +39,13 @@ Dialog {
             ValueButton {
                 width: parent.width
                 label: qsTr("Time").concat(": ")
-                value: dateTime.getTime() > 0 ? Qt.formatTime(dateTime,
-                                    "hh:mm".concat(timeFormatConfig.value === "24" ? "" : " AP")) : qsTr("Select")
+                value: dateTime.getTime() > 0 ? Qt.formatTime(dateTime, "hh:mm") : qsTr("Select")
 
                 onClicked: {
                     var dialog = pageStack.push("Sailfish.Silica.TimePickerDialog",
                                                 { hour: dateTime.getHours(), minute: dateTime.getMinutes() });
                     dialog.accepted.connect(function() {
-                        value = Qt.formatTime(dialog.time, "hh:mm".concat(timeFormatConfig.value === "24" ? "" : " AP"));
+                        value = Qt.formatTime(dialog.time, "hh:mm");
                         selectedHour = dialog.hour;
                         selectedMinute = dialog.minute;
                     });
