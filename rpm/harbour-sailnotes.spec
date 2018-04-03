@@ -12,7 +12,7 @@ Name:       harbour-sailnotes
 %{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
-Summary:    SailNotes is a simple notepad application.
+Summary:    Sailnotes is a simple notepad application.
 Version:    1.0
 Release:    1
 Group:      Qt/Qt
@@ -29,7 +29,7 @@ BuildRequires:  pkgconfig(nemonotifications-qt5)
 BuildRequires:  desktop-file-utils
 
 %description
-SailNotes is simply the quickest way to offload ideas, thoughts, and to-dos without losing focus.
+Sailnotes is simply the quickest way to offload ideas, thoughts, and to-dos without losing focus.
 - Create notes, set time reminders.
 - Add photos and drawings.
 
