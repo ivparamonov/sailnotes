@@ -3,4 +3,4 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=harbour-sailnotes
 Exec=harbour-sailnotes
-Name=SailNotes
+Name=Sailnotes
