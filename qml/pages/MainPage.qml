@@ -115,6 +115,16 @@ Page {
 
     Component.onCompleted: refreshNoteList()
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            pageStack.backNavigation = false;
+            pageStack.forwardNavigation = false;
+        } else if (status === PageStatus.Inactive) {
+            pageStack.backNavigation = true;
+            pageStack.forwardNavigation = true;
+        }
+    }
+
     function refreshNoteList() {
         noteListModel.clear();
         dao.retrieveAllNotes(function(notes) {
