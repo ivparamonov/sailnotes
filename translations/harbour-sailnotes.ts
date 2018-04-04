@@ -20,58 +20,58 @@
 <context>
     <name>EditNoteDialog</name>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="12"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="11"/>
         <source>Enter the note description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="35"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="34"/>
         <source>Add a note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="35"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="34"/>
         <source>Edit the note</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="40"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="39"/>
         <source>Reminder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="43"/>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="56"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="42"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="55"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="66"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="65"/>
         <source>The reminder datetime must follow the current datetime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="78"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="77"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="79"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="78"/>
         <source>Enter the note title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="125"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="124"/>
         <source>Add a picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="137"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="136"/>
         <source>Add a photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="184"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="183"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -133,7 +133,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="105"/>
+        <location filename="../qml/pages/MainPage.qml" line="103"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>

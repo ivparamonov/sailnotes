@@ -7,7 +7,6 @@ import "../components"
 Dialog {
 
     property var note
-    property bool needRemovePicture: false
     property var picturesToRemove: []
     property string placeholder: qsTr("Enter the note description")
     property bool placeholderVisible: note.description.length === 0
@@ -183,9 +182,9 @@ Dialog {
                             width: parent.width
                             text: qsTr("Delete")
                             onClicked: {
-                                needRemovePicture = true;
                                 picturesToRemove.push(path);
-                                note.picturePaths.replace("," + path, '');
+                                note.picturePaths = note.picturePaths.replace("," + path, "")
+                                                        .replace(path + ",", "").replace(path, "");
                                 gridView.model.remove(index);
                             }
                         }
