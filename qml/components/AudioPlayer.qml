@@ -56,7 +56,7 @@ Item {
         id: progressBar
         anchors.left: playButton.right
         anchors.right: deleteButton.visible ? deleteButton.left : parent.right
-        maximumValue: player.duration > 0 && isRecord == false ? player.duration / 100 : 1200
+        maximumValue: player.duration > 0 && isRecord === false ? player.duration / 100 : 1200
     }
     IconButton {
         id: deleteButton

@@ -78,7 +78,7 @@ Dialog {
     }
 
     Component.onCompleted: {
-        if (dateTime.getTime() == 0) {
+        if (dateTime.getTime() === 0) {
             dateTime = new Date();
             isNew = true;
         }
