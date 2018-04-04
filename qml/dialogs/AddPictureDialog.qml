@@ -24,7 +24,7 @@ Dialog {
         }
         onPaint: {
             var ctx = getContext('2d');
-            if (!filled) {
+            if (status === PageStatus.Active && !filled) {
                 ctx.fillStyle = Qt.rgba(1, 1, 1, 0.5);
                 ctx.fillRect(0, 0, width, height);
                 filled = true;
@@ -56,6 +56,12 @@ Dialog {
         pageStack.backNavigation = true;
         pageStack.forwardNavigation = true;
     }
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            canvas.requestPaint();
+        }
+    }
+
     Component.onCompleted: {
         pageStack.backNavigation = false;
         pageStack.forwardNavigation = false;

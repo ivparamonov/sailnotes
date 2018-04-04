@@ -119,10 +119,10 @@ Dialog {
                 width: parent.width - 2 * Theme.paddingLarge
                 spacing: Theme.paddingMedium
                 Button {
-
                     width: parent.width / 2 - Theme.paddingMedium
                     text: qsTr("Add a picture")
                     onClicked: {
+                        clearFocuses();
                         var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/AddPictureDialog.qml"));
                         dialog.accepted.connect(function() {
                             note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
@@ -135,6 +135,7 @@ Dialog {
                     width: parent.width / 2
                     text: qsTr("Add a photo")
                     onClicked: {
+                        clearFocuses();
                         var dialog = pageStack.push(Qt.resolvedUrl("../pages/CameraPage.qml"));
                         dialog.accepted.connect(function() {
                             note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
@@ -199,6 +200,11 @@ Dialog {
                 }
             }
         }
+    }
+
+    function clearFocuses() {
+        titleTextField.focus = false;
+        descriptionTextEdit.focus = false;
     }
 
     onAccepted: {

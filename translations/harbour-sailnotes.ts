@@ -61,7 +61,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="124"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="123"/>
         <source>Add a picture</source>
         <translation type="unfinished"></translation>
     </message>
@@ -71,7 +71,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="183"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="184"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
