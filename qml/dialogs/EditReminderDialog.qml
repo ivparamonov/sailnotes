@@ -3,12 +3,10 @@ import Sailfish.Silica 1.0
 
 Dialog {
 
-    property date selectedDate
-    property int selectedHour
-    property int selectedMinute
-
     property date dateTime
     property bool isNew
+
+    canAccept: !dateTimeValidationLabel.visible
 
     SilicaFlickable {
         anchors.fill: parent
@@ -30,8 +28,9 @@ Dialog {
                     var dialog = pageStack.push("Sailfish.Silica.DatePickerDialog",
                                                 { date: dateTime.getTime() === 0 ? 'undefined' : dateTime });
                     dialog.accepted.connect(function() {
-                        value = dialog.date.toLocaleDateString([], {year: 'numeric', month: 'long', day: 'numeric'});
-                        selectedDate = dialog.date;
+                        updateDateTime(dialog.date.getFullYear(), dialog.date.getMonth(),
+                                       dialog.date.getDate(), dateTime.getHour(),
+                                       dateTime.getMinutes());
                     });
                 }
             }
@@ -45,11 +44,20 @@ Dialog {
                     var dialog = pageStack.push("Sailfish.Silica.TimePickerDialog",
                                                 { hour: dateTime.getHours(), minute: dateTime.getMinutes() });
                     dialog.accepted.connect(function() {
-                        value = Qt.formatTime(dialog.time, "hh:mm");
-                        selectedHour = dialog.hour;
-                        selectedMinute = dialog.minute;
+                        updateDateTime(dateTime.getFullYear(), dateTime.getMonth(),
+                                       dateTime.getDate(), dialog.hour, dialog.minute);
                     });
                 }
+            }
+
+            Label {
+                id: dateTimeValidationLabel
+                visible: dateTime.getTime() > 0 && dateTime < new Date()
+                text: qsTr("The reminder datetime must follow the current datetime")
+                color: Qt.rgba(1.0, 0.3, 0.3, 1)
+                wrapMode: Text.Wrap
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2 * x
             }
 
             Button {
@@ -58,25 +66,21 @@ Dialog {
                 text: qsTr("Clear reminder")
                 visible: dateTime.getTime() > 0
                 onClicked: {
-                    selectedDate = new Date(0);
-                    selectedHour = selectedDate.getHours();
-                    selectedMinute = selectedDate.getMinutes();
+                    dateTime = new Date(0);
                     accept();
                 }
             }
         }
     }
-    onAccepted: {
-        dateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(),
-                            selectedDate.getDate(), selectedHour, selectedMinute);
+
+    function updateDateTime(year, month, dayOfMonth, hour, minute) {
+        dateTime = new Date(year, month, dayOfMonth, hour, minute, 0, 0);
     }
+
     Component.onCompleted: {
         if (dateTime.getTime() == 0) {
             dateTime = new Date();
             isNew = true;
         }
-        selectedDate = dateTime;
-        selectedHour = dateTime.getHours();
-        selectedMinute = dateTime.getMinutes();
     }
 }

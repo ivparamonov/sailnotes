@@ -22,6 +22,7 @@ Item {
                 notification.body = body;
                 notification.previewBody = body;
                 notification.publish();
+                removeNotification(noteId);
             }
         }
     }
@@ -54,16 +55,19 @@ Item {
     }
 
     function scheduleNotification(noteId, summary, body, reminderTimestamp) {
+        var timerInterval = reminderTimestamp - new Date().getTime();
         var timer = timerComponent.createObject(appWindow,
                                                 {noteId: noteId, summary:summary, body: body,
-                                                interval: reminderTimestamp - new Date().getTime()});
+                                                interval: timerInterval});
         if (noteId in timers) removeNotification(noteId);
         timers[noteId] = timer;
         timers[noteId].start();
     }
 
     function removeNotification(noteId) {
-        timers[noteId].stop();
+        if (timers[noteId] !== undefined) {
+            timers[noteId].stop();
+        }
         delete timers[noteId];
     }
 

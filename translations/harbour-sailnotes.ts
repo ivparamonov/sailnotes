@@ -47,26 +47,31 @@
     </message>
     <message>
         <location filename="../qml/dialogs/EditNoteDialog.qml" line="66"/>
+        <source>The reminder datetime must follow the current datetime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="78"/>
         <source>Title:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="67"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="79"/>
         <source>Enter the note title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="113"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="125"/>
         <source>Add a picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="125"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="137"/>
         <source>Add a photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="172"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="184"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -74,33 +79,38 @@
 <context>
     <name>EditReminderDialog</name>
     <message>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="23"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="21"/>
         <source>Add reminder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="23"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="21"/>
         <source>Edit reminder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="27"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="25"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="28"/>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="42"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="26"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="41"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="41"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="40"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditReminderDialog.qml" line="58"/>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="56"/>
+        <source>The reminder datetime must follow the current datetime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/dialogs/EditReminderDialog.qml" line="66"/>
         <source>Clear reminder</source>
         <translation type="unfinished"></translation>
     </message>

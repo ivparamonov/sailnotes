@@ -12,7 +12,7 @@
     <name>CoverPage</name>
     <message>
         <source>Sailnotes</source>
-        <translation type="unfinished"></translation>
+        <translation>Sailnotes</translation>
     </message>
 </context>
 <context>
@@ -57,6 +57,10 @@
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
+    <message>
+        <source>The reminder datetime must follow the current datetime</source>
+        <translation>Дата и время напоминания должны быть позже текущих даты и времени</translation>
+    </message>
 </context>
 <context>
     <name>EditReminderDialog</name>
@@ -83,6 +87,10 @@
     <message>
         <source>Select</source>
         <translation>Выбрать</translation>
+    </message>
+    <message>
+        <source>The reminder datetime must follow the current datetime</source>
+        <translation>Дата и время напоминания должны быть позже текущих даты и времени</translation>
     </message>
 </context>
 <context>

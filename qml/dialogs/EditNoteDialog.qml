@@ -12,7 +12,7 @@ Dialog {
     property string placeholder: qsTr("Enter the note description")
     property bool placeholderVisible: note.description.length === 0
 
-    canAccept: titleTextField.text.length > 0 || (!placeholderVisible && descriptionTextEdit.text.length > 0)
+    canAccept: titleTextField.text.length > 0 && !dateTimeValidationLabel.visible
 
     ListModel { id: gridModel }
 
@@ -54,8 +54,20 @@ Dialog {
                         value = note.reminderTimestamp > 0
                                 ? Qt.formatDateTime(new Date(note.reminderTimestamp), "dd MMM yyyy hh:mm")
                                 : qsTr("Select");
+                        dateTimeValidationLabel.visible = note.reminderTimestamp > 0
+                                && note.reminderTimestamp < new Date();
                     });
                 }
+            }
+
+            Label {
+                id: dateTimeValidationLabel
+                visible: note.reminderTimestamp > 0 && note.reminderTimestamp < new Date()
+                text: qsTr("The reminder datetime must follow the current datetime")
+                color: Qt.rgba(1.0, 0.3, 0.3, 1)
+                wrapMode: Text.Wrap
+                x: Theme.horizontalPageMargin
+                width: parent.width - 2 * x
             }
 
             TextField {
