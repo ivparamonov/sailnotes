@@ -49,8 +49,6 @@ Dialog {
         }
     }
     onDone: {
-        picturePath = fileHelper.generatePictureFullPath();
-        canvas.save(picturePath);
         if (result === DialogResult.Accepted) {
             picturePath = fileHelper.generatePictureFullPath();
             canvas.save(picturePath);
