@@ -26,8 +26,7 @@ Item {
         repeat: true
         onTriggered: {
             if (progressBar.value >= progressBar.maximumValue) {
-                timer.stop();
-                audioRecorder.stop();
+                stopRecording();
                 progressBar.value = 0;
             } else {
                 progressBar.value++;
@@ -42,7 +41,15 @@ Item {
                      ? "../icons/reddot.png" : "image://theme/icon-m-dot"
         enabled: player.playbackState !== MediaPlayer.PlayingState && !audioFileExists
         visible: allowEditing
-        onClicked: handleRecordButtonClick()
+        onClicked: {
+            progressBar.value = 0;
+            isRecord = true;
+            if (audioRecorder.isRecording) {
+                stopRecording();
+            } else {
+                startRecording();
+            }
+        }
     }
     IconButton {
         id: playButton
@@ -50,13 +57,21 @@ Item {
         icon.source: player.playbackState === MediaPlayer.PlayingState
                      ? "image://theme/icon-m-tabs" : "image://theme/icon-m-media"
         enabled: !audioRecorder.isRecording && audioFileExists
-        onClicked: handlePlayButtonClick()
+        onClicked: {
+            player.source = audioFilePath;
+            isRecord = false;
+            if (player.playbackState === MediaPlayer.PlayingState) {
+                stopPlaying();
+            } else {
+                play();
+            }
+        }
     }
     ProgressBar {
         id: progressBar
         anchors.left: playButton.right
         anchors.right: deleteButton.visible ? deleteButton.left : parent.right
-        maximumValue: player.duration > 0 && isRecord === false ? player.duration / 100 : 1200
+        maximumValue: player.duration > 0 && !isRecord ? player.duration / 100 : 1200
     }
     IconButton {
         id: deleteButton
@@ -65,36 +80,33 @@ Item {
         enabled: playButton.enabled
         visible: allowEditing
         onClicked: {
+            stopPlaying();
             audioRecorder.removeAudioFile(audioFilePath);
             audioFilePath = "";
         }
     }
 
-    function handleRecordButtonClick() {
-        progressBar.value = 0;
-        isRecord = true;
-        if (audioRecorder.isRecording) {
-            audioRecorder.stop();
-            timer.stop();
-        } else {
-            if (audioFilePath.length === 0) {
-                audioFilePath = audioRecorder.createAudioFileName();
-            }
-            audioRecorder.record(audioFilePath);
-            timer.start();
+    function startRecording() {
+        if (audioFilePath.length === 0) {
+            audioFilePath = audioRecorder.createAudioFileName();
         }
+        audioRecorder.record(audioFilePath);
+        timer.start();
     }
 
-    function handlePlayButtonClick() {
-        player.source = audioFilePath;
-        isRecord = false;
-        if (player.playbackState === MediaPlayer.PlayingState) {
-            timer.stop();
-            progressBar.value = 0;
-            player.seek(player.duration);
-        } else {
-            player.play();
-            timer.start();
-        }
+    function stopRecording() {
+        audioRecorder.stop();
+        timer.stop();
+    }
+
+    function play() {
+        player.play();
+        timer.start();
+    }
+
+    function stopPlaying() {
+        timer.stop();
+        progressBar.value = 0;
+        player.seek(player.duration);
     }
 }
