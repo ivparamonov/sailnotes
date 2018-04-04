@@ -65,7 +65,6 @@ Page {
                 id: descriptionLabel
                 text: description
                 font.pixelSize: Theme.fontSizeMedium
-                textFormat: Text.RichText
                 color: Theme.primaryColor
                 wrapMode: Text.Wrap
                 anchors {
