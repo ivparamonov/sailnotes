@@ -34,7 +34,6 @@ TRANSLATIONS += translations/harbour-sailnotes.ts \
                 translations/harbour-sailnotes-ru.ts
 
 DISTFILES += \
-    qml/pages/CameraPage.qml \
     qml/pages/EditTextNoteDialog.qml \
     qml/pages/MainPage.qml \
     qml/pages/EditImagePhotoNoteDialog.qml \
@@ -48,4 +47,5 @@ DISTFILES += \
     qml/persistence/NotesDao.qml \
     qml/persistence/NoteListModel.qml \
     qml/components/NotificationManager.qml \
-    qml/harbour-sailnotes.qml
+    qml/harbour-sailnotes.qml \
+    qml/dialogs/CameraDialog.qml

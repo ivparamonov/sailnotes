@@ -136,7 +136,7 @@ Dialog {
                     text: qsTr("Add a photo")
                     onClicked: {
                         clearFocuses();
-                        var dialog = pageStack.push(Qt.resolvedUrl("../pages/CameraPage.qml"));
+                        var dialog = pageStack.push(Qt.resolvedUrl("CameraDialog.qml"));
                         dialog.accepted.connect(function() {
                             note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
                                     + dialog.photoPath;
