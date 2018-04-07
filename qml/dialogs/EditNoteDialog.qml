@@ -211,5 +211,14 @@ Dialog {
         note.title = titleTextField.text;
         note.description = placeholderVisible ? "" : descriptionTextEdit.text;
         note.audioFilePath = audioPlayer.audioFileExists ? audioPlayer.audioFilePath : "";
+        picturesToRemove.forEach(function(path) {
+            fileHelper.removeFile(path);
+        });
+        if (note.reminderTimestamp > 0) {
+            notificationManager.scheduleNotification(note.id, note.title, note.description,
+                                                     note.reminderTimestamp);
+        } else {
+            notificationManager.removeNotification(note.id);
+        }
     }
 }

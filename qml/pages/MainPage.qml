@@ -84,16 +84,6 @@ Page {
                                                     {note: note});
 
                         dialog.accepted.connect(function() {
-                            dialog.picturesToRemove.forEach(function(path) {
-                                fileHelper.removeFile(path);
-                            });
-                            if (dialog.note.reminderTimestamp > 0) {
-                                notificationManager.scheduleNotification(
-                                            id, dialog.note.title, dialog.note.description,
-                                            dialog.note.reminderTimestamp);
-                            } else {
-                                notificationManager.removeNotification(id);
-                            }
                             dao.updateNote(dialog.note);
                             noteListModel.updateNote(model.index, dialog.note);
                         });
