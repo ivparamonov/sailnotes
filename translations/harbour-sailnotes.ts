@@ -141,12 +141,12 @@
 <context>
     <name>NoteDetailsPage</name>
     <message>
-        <location filename="../qml/pages/NoteDetailsPage.qml" line="26"/>
+        <location filename="../qml/pages/NoteDetailsPage.qml" line="34"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/NoteDetailsPage.qml" line="40"/>
+        <location filename="../qml/pages/NoteDetailsPage.qml" line="43"/>
         <source>Reminder</source>
         <translation type="unfinished"></translation>
     </message>

@@ -20,79 +20,73 @@ Page {
 
         VerticalScrollDecorator {}
 
-        PageHeader {
-            id: header
-            width: parent.width
-            title: qsTr("Details")
-        }
-
         Column {
             id: column
-            width: parent.width
-            height: reminderLabel.contentHeight + titleLabel.contentHeight
-                    + descriptionLabel.contentHeight + imageListView.contentHeight
-                    + audioPlayer.height + 10 * Theme.paddingLarge
-            anchors.top: header.bottom
-            spacing: Theme.paddingLarge
+            anchors {
+                left: parent.left; right: parent.right
+            }
+            spacing: Theme.paddingMedium
+
+            PageHeader {
+                anchors {
+                    left: parent.left; right: parent.right
+                }
+                title: qsTr("Details")
+            }
 
             Label {
                 id: reminderLabel
+                anchors {
+                    left: parent.left; right: parent.right
+                    margins: Theme.horizontalPageMargin
+                }
                 text: qsTr("Reminder").concat(": ")
                       + Qt.formatDateTime(new Date(reminderTimestamp), "dd MMM yyyy hh:mm")
                 font.pixelSize: Theme.fontSizeExtraSmall
                 wrapMode: Text.Wrap
                 visible: reminderTimestamp > 0
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    margins: Theme.paddingLarge
-                }
             }
-
             Label {
                 id: titleLabel
+                anchors {
+                    left: parent.left; right: parent.right
+                    margins: Theme.horizontalPageMargin
+                }
                 text: title
                 font.pixelSize: Theme.fontSizeExtraLarge
                 wrapMode: Text.Wrap
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    margins: Theme.paddingLarge
-                }
             }
-
             Text {
                 id: descriptionLabel
+                anchors {
+                    left: parent.left; right: parent.right
+                    margins: Theme.horizontalPageMargin
+                }
                 text: description
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.primaryColor
                 wrapMode: Text.Wrap
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    margins: Theme.paddingLarge
-                }
             }
-
             AudioPlayer {
                 id: audioPlayer
-                x: Theme.paddingMedium
-                width: parent.width
+                anchors {
+                    left: parent.left; right: parent.right
+                }
                 audioFilePath: page.audioFilePath
                 visible: audioFilePath.length > 0
                 allowEditing: false
             }
-
             SilicaListView {
                 id: imageListView
-                width: parent.width
+                anchors {
+                    left: parent.left; right: parent.right
+                }
                 height: listModel.count === 0 ? 0 : contentHeight
+                spacing: Theme.paddingSmall
                 model: ListModel { id: listModel }
                 delegate: Image {
                     anchors {
-                        left: parent.left
-                        right: parent.right
-                        margins: Theme.paddingLarge
+                        left: parent.left; right: parent.right
                     }
                     fillMode: Image.PreserveAspectFit
                     source: imagePath
