@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 
 Dialog {
 
-    property string title
     property string picturePath
 
     DialogHeader {
