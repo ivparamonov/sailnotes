@@ -121,28 +121,12 @@ Dialog {
                 Button {
                     width: parent.width / 2 - Theme.paddingMedium
                     text: qsTr("Add a picture")
-                    onClicked: {
-                        clearFocuses();
-                        var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/AddPictureDialog.qml"));
-                        dialog.accepted.connect(function() {
-                            note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
-                                    + dialog.picturePath;
-                            gridModel.append({path: dialog.picturePath});
-                        });
-                    }
+                    onClicked: openAddPictureOrPhotoDialog("AddPictureDialog.qml")
                 }
                 Button {
                     width: parent.width / 2
                     text: qsTr("Add a photo")
-                    onClicked: {
-                        clearFocuses();
-                        var dialog = pageStack.push(Qt.resolvedUrl("CameraDialog.qml"));
-                        dialog.accepted.connect(function() {
-                            note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
-                                    + dialog.photoPath;
-                            gridModel.append({path: dialog.photoPath});
-                        });
-                    }
+                    onClicked: openAddPictureOrPhotoDialog("CameraDialog.qml")
                 }
             }
             AudioPlayer {
@@ -202,9 +186,15 @@ Dialog {
         }
     }
 
-    function clearFocuses() {
+    function openAddPictureOrPhotoDialog(dialogFileName) {
         titleTextField.focus = false;
         descriptionTextEdit.focus = false;
+        var dialog = pageStack.push(Qt.resolvedUrl(dialogFileName));
+        dialog.accepted.connect(function() {
+            note.picturePaths += (note.picturePaths.length > 0 ? "," : "")
+                    + dialog.picturePath;
+            gridModel.append({path: dialog.picturePath});
+        });
     }
 
     onAccepted: {

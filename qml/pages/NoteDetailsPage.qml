@@ -89,11 +89,11 @@ Page {
                         left: parent.left; right: parent.right
                     }
                     fillMode: Image.PreserveAspectFit
-                    source: imagePath
+                    source: picturePath
                 }
                 Component.onCompleted: {
                     picturePaths.split(",").forEach(function(path) {
-                        listModel.append({imagePath: path});
+                        listModel.append({picturePath: path});
                     });
                 }
             }

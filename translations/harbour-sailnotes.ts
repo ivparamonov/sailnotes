@@ -66,12 +66,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="136"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="128"/>
         <source>Add a photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/dialogs/EditNoteDialog.qml" line="184"/>
+        <location filename="../qml/dialogs/EditNoteDialog.qml" line="168"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>

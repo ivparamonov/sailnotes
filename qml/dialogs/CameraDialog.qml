@@ -4,13 +4,13 @@ import Sailfish.Silica 1.0
 
 Dialog {
 
-    property string photoPath
+    property string picturePath
 
     Camera {
         id: camera
         imageCapture {
             onImageSaved: {
-                photoPath = path;
+                picturePath = path;
                 fileHelper.rotatePhoto(path);
                 pageStack.backNavigation = true;
                 pageStack.forwardNavigation = true;
